@@ -1,3 +1,6 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - first release!
+        - thanks to all contributors, especially Jakes Goldsborough, who
+          provided more mappings than my first meagre listing
