@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.001     2015-10-11 18:48:40-04:00 America/New_York
         - first release!
         - thanks to all contributors, especially Jakes Goldsborough, who
           provided more mappings than my first meagre listing
