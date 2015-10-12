@@ -65,6 +65,11 @@ our %Emoji = (
   'relaxed'               => "\N{WHITE SMILING FACE}",
   'relieved'              => "\N{RELIEVED FACE}",
   'satisfied'   => "\N{SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES}",
+
+  # This should really be SLIGHTLY SMILING FACE, but OS X 10.11.0 and iOS 9.0
+  # do not have this glyph.  Apparently it's in iOS 9.1. -- rjbs, 2015-10-12
+  'simple_smile' => "\N{SMILING FACE WITH SMILING EYES}",
+
   'smile'       => "\N{SMILING FACE WITH OPEN MOUTH AND SMILING EYES}",
   'smiley'      => "\N{SMILING FACE WITH OPEN MOUTH}",
   'smiling_imp' => "\N{SMILING FACE WITH HORNS}",
