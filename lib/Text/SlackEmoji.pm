@@ -27,9 +27,16 @@ using the Slack app, at least when possible.
 =cut
 
 our %Emoji;
-sub initialize_emoji {
+sub _initialize_emoji {
   $_[0]->load_emoji unless %Emoji;
 }
+
+=method load_emoji
+
+This method reloads the emoji map from disk, allowing the mapping to be updated
+in (say) your IRC client without forcing the reload of the module.
+
+=cut
 
 sub load_emoji {
   my $emoji_file = File::ShareDir::dist_file('Text-SlackEmoji', 'emoji.pl');
@@ -37,7 +44,7 @@ sub load_emoji {
   return;
 }
 
-__PACKAGE__->initialize_emoji;
+__PACKAGE__->_initialize_emoji;
 
 =method emoji_map
 
@@ -48,6 +55,7 @@ to Unicode strings.  The strings may be more than one character long.
 
 sub emoji_map {
   my ($self) = @_;
+  $self->_initialize_emoji;
   return { %Emoji };
 }
 
