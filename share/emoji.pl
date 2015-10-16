@@ -64,4 +64,8 @@ return {
   'stuck_out_tongue' => "\N{FACE WITH STUCK-OUT TONGUE}",
   'stuck_out_tongue_closed_eyes' => "\N{FACE WITH STUCK-OUT TONGUE AND TIGHTLY-CLOSED EYES}",
   'stuck_out_tongue_winking_eyes' => "\N{FACE WITH STUCK-OUT TONGUE AND WINKING EYE}",
+
+  'see_no_evil'   => "\N{SEE-NO-EVIL MONKEY}",
+  'hear_no_evil'  => "\N{HEAR-NO-EVIL MONKEY}",
+  'speak_no_evil' => "\N{SPEAK-NO-EVIL MONKEY}",
 };
