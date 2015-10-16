@@ -1,6 +1,11 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - there's a new method, ->load_emoji, to reload the emoji mapping
+          without needing to reload the module
+        - add a few emoji, but surely there are ones left to go
+        - you know what would be great?  a patch that started by getting the
+          full list of emoji from the Slack API
 
 0.001     2015-10-11 18:48:40-04:00 America/New_York
         - first release!
