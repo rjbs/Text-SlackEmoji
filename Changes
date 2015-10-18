@@ -1,7 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.003     2015-10-17 22:16:12-04:00 America/New_York
         - update prereq to perl 5.14.0 for new enough Unicode
+        - add a few more emoji, but still missing plenty
 
 0.002     2015-10-16 10:46:55-04:00 America/New_York
         - there's a new method, ->load_emoji, to reload the emoji mapping
