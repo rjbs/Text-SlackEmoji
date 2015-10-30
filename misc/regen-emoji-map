@@ -1,0 +1,33 @@
+use strict;
+use warnings;
+
+use HTTP::Tiny;
+use JSON;
+
+my $res = HTTP::Tiny->new->get(
+  "https://raw.githubusercontent.com/iamcal/emoji-data/master/emoji.json",
+);
+
+die "error: $res->{content}" unless $res->{success};
+
+my $json = $res->{content}; # XXX: Can we really assume this is ASCII?
+
+my $data = JSON->new->decode($json);
+
+my $output = "return {\n";
+
+for my $char (sort { $a->{short_name} cmp $b->{short_name} } @$data) {
+  my $points = $char->{variations}->[0] || $char->{unified};
+  my $str = join q{}, map {; "\\x{$_}" } split /-/, $points;
+
+  for my $name (@{ $char->{short_names} }) {
+    die "quote in a name!!" if $name =~ /"/;
+    $output .= qq{  "$name" => "$str",\n};
+  }
+}
+
+$output .= qq{  "simple_smile" => "\\x{1F641}",\n};
+
+$output .= "};\n";
+
+print $output;
