@@ -1341,5 +1341,5 @@ return {
   "zero" => "\x{0030}\x{FE0F}\x{20E3}",
   "zipper_mouth_face" => "\x{1F910}",
   "zzz" => "\x{1F4A4}",
-  "simple_smile" => "\x{1F641}",
+  "simple_smile" => "\x{1F642}",
 };

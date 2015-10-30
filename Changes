@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - turn that frown… upside down!
+          (:simple_smile: was mapped to 1F641 instead of 1F642)
 
 0.004     2015-10-29 23:38:03-04:00 America/New_York
         - generate emoji list from https://github.com/iamcal/emoji-data
