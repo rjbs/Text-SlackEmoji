@@ -26,7 +26,7 @@ for my $char (sort { $a->{short_name} cmp $b->{short_name} } @$data) {
   }
 }
 
-$output .= qq{  "simple_smile" => "\\x{1F641}",\n};
+$output .= qq{  "simple_smile" => "\\x{1F642}",\n};
 
 $output .= "};\n";
 
