@@ -1,7 +1,14 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.004     2015-10-29 23:38:03-04:00 America/New_York
         - update prereq to perl 5.14.0 for new enough Unicode
+        - generate emoji list from https://github.com/iamcal/emoji-data
+          (thanks for the pointer, Rob N.!)
+
+          This gets tons more emoji, but some of them are not known Slack
+          emoji, so it's a bit of a trade off.
 
 0.002     2015-10-16 10:46:55-04:00 America/New_York
         - there's a new method, ->load_emoji, to reload the emoji mapping
