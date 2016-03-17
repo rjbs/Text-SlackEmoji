@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+0.006     2016-03-16 22:55:30-04:00 America/New_York
         - drop the required version, since what we need a higher version for is
           building the shared emoji mapping, not using it
         - simlarly, make it possible to load only emoji for which your perl
