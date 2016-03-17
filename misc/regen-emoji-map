@@ -62,8 +62,9 @@ my $output = "my %hash;\n";
 $output .= qq{  \$hash{simple_smile} = "\\x{1F642}";\n};
 
 for my $perl (sort keys %emoji) {
-  $output .= "if (\$] >= $perl) {\n";
-  $output .= qq{  \$hash{"$_"} = "$emoji{$perl}{$_}";\n} for keys %{ $emoji{$perl} };
+  $output .= "if (\$] >= $perl || ! \$ENV{SLACKEMOJI_STRICT}) {\n";
+  $output .= qq{  \$hash{"$_"} = "$emoji{$perl}{$_}";\n}
+    for sort keys %{ $emoji{$perl} };
   $output .= "}\n";
 }
 

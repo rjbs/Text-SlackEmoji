@@ -1,6 +1,10 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - drop the required version, since what we need a higher version for is
+          building the shared emoji mapping, not using it
+        - simlarly, make it possible to load only emoji for which your perl
+          knows the UCD data
 
 0.005     2015-10-30 07:56:47-04:00 America/New_York
         - turn that frown… upside down!
