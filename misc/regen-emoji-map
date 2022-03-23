@@ -75,7 +75,11 @@ for my $char (sort { $a->{short_name} cmp $b->{short_name} } @$data) {
   if ($max_age > $MAX_AGE) { die "can't handle unicode age $max_age\n" }
 
   my $perl = $min_perl{ $max_age };
-  die "can't handle $max_age\n" unless $perl;
+
+  unless ($perl) {
+    warn "No known perl can handle $char->{name} which has an age of $max_age\n";
+    next;
+  }
 
   my $str = join q{}, map {; "\\x{$_}" } @points;
 
