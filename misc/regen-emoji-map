@@ -49,7 +49,8 @@ my $json = $res->{content}; # XXX: Can we really assume this is ASCII?
 
 my $data = Cpanel::JSON::XS->new->decode($json);
 
-my %emoji;
+my %by_perl;
+my %extra_emoji;
 
 for my $char (sort { $a->{short_name} cmp $b->{short_name} } @$data) {
   my @points  = split /-/, $char->{unified};
@@ -75,16 +76,14 @@ for my $char (sort { $a->{short_name} cmp $b->{short_name} } @$data) {
   if ($max_age > $MAX_AGE) { die "can't handle unicode age $max_age\n" }
 
   my $perl = $min_perl{ $max_age };
+  my $str  = join q{}, map {; "\\x{$_}" } @points;
 
-  unless ($perl) {
-    warn "No known perl can handle $char->{name} which has an age of $max_age\n";
-    next;
-  }
-
-  my $str = join q{}, map {; "\\x{$_}" } @points;
+  my $target = $perl
+             ? ($by_perl{$perl} //= {})
+             : \%extra_emoji;
 
   for my $name (@{ $char->{short_names} }) {
-    $emoji{$perl}{$name} = $str;
+    $target->{$name} = $str;
   }
 }
 
@@ -92,10 +91,18 @@ my $output = "my %hash;\n";
 
 $output .= qq{  \$hash{simple_smile} = "\\x{1F642}";\n};
 
-for my $perl (sort keys %emoji) {
+for my $perl (sort keys %by_perl) {
   $output .= "if (\$] >= $perl || ! \$ENV{SLACKEMOJI_STRICT}) {\n";
-  $output .= qq{  \$hash{"$_"} = "$emoji{$perl}{$_}";\n}
-    for sort keys %{ $emoji{$perl} };
+  $output .= qq{  \$hash{"$_"} = "$by_perl{$perl}{$_}";\n}
+    for sort keys %{ $by_perl{$perl} };
+  $output .= "}\n";
+}
+
+{
+  $output .= "if (! \$ENV{SLACKEMOJI_STRICT}) {\n";
+  for my $name (sort keys %extra_emoji) {
+    $output .= qq{  \$hash{"$name"} = "$extra_emoji{$name}";\n};
+  }
   $output .= "}\n";
 }
 
