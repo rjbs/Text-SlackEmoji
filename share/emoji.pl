@@ -1928,4 +1928,13 @@ if ($] >= 5.035004 || ! $ENV{SLACKEMOJI_STRICT}) {
   $hash{"wheel"} = "\x{1F6DE}";
   $hash{"x-ray"} = "\x{1FA7B}";
 }
+if (! $ENV{SLACKEMOJI_STRICT}) {
+  $hash{"face_exhaling"} = "\x{1F62E}\x{200D}\x{1F4A8}";
+  $hash{"face_in_clouds"} = "\x{1F636}\x{200D}\x{1F32B}\x{FE0F}";
+  $hash{"face_with_spiral_eyes"} = "\x{1F635}\x{200D}\x{1F4AB}";
+  $hash{"heart_on_fire"} = "\x{2764}\x{FE0F}\x{200D}\x{1F525}";
+  $hash{"man_with_beard"} = "\x{1F9D4}\x{200D}\x{2642}\x{FE0F}";
+  $hash{"mending_heart"} = "\x{2764}\x{FE0F}\x{200D}\x{1FA79}";
+  $hash{"woman_with_beard"} = "\x{1F9D4}\x{200D}\x{2640}\x{FE0F}";
+}
 return \%hash;
