@@ -32,7 +32,7 @@ my %min_perl = (
 );
 
 use HTTP::Tiny;
-use JSON;
+use Cpanel::JSON::XS;
 use List::Util qw(min max);
 use Unicode::UCD 'charprop';
 
@@ -47,7 +47,7 @@ die "error: $res->{content}" unless $res->{success};
 
 my $json = $res->{content}; # XXX: Can we really assume this is ASCII?
 
-my $data = JSON->new->decode($json);
+my $data = Cpanel::JSON::XS->new->decode($json);
 
 my %emoji;
 
