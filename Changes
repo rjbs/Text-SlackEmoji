@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+        - update author contact info
 
 0.008     2022-03-23 12:59:20-04:00 America/New_York
         - updates for Unicode 14 and perl v5.35.4
